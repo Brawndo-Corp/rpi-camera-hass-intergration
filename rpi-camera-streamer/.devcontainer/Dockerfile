@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libcamera-apps-lite \
     libcamera-v4l2 \
     v4l-utils \
+    ffmpeg \
     wget \
     ca-certificates \
     && rm -rf /var/lib/apt/lists/*
@@ -18,8 +19,7 @@ RUN wget https://github.com/bluenviron/mediamtx/releases/download/${MEDIAMTX_VER
     && rm mediamtx_${MEDIAMTX_VERSION}_linux_arm64v8.tar.gz
 
 # Prepare MediaMTX config
-RUN echo "paths:\n  all:\n    source: publisher" > /etc/mediamtx.yml
-
+RUN echo "paths:\n  all:\n    source: publisher\n    rtspTransport: tcp" > /etc/mediamtx.yml
 # Copy the startup script
 COPY run.sh /
 RUN chmod a+x /run.sh
