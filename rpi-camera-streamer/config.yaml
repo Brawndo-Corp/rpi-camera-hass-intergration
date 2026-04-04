@@ -1,9 +1,7 @@
 name: "RPi Camera Streamer (Full Access)"
-version: "1.1.0"
-panel_icon: "mdi:cctv"
-panel_title: RPi Camera Streamer
+version: "1.0"
 slug: "rpi-camera-streamer"
-description: "Universal CSI/USB camera streamer, optimized for RPi 5 and all official camera modules."
+description: "RPi CSI camera streamer."
 url: "https://github.com/Brawndo-Corp/rpi-camera-haos-app"
 startup: application
 boot: auto
@@ -27,7 +25,7 @@ devices:
   - /dev/media3:/dev/media3
 options:
   camera_path: "0"
-  resolution: "1456x1088"
+  resolution: "1920x1080"
   framerate: 15
   bitrate: 12000000
   h264_profile: "main"
