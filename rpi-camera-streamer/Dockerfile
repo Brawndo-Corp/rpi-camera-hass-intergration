@@ -21,10 +21,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         ffmpeg \
     && rm -rf /var/lib/apt/lists/*
 # Install MediaMTX (RTSP Server)
-ARG MEDIAMTX_VERSION=v1.17.1
-RUN wget https://github.com/bluenviron/mediamtx/releases/download/${MEDIAMTX_VERSION}/mediamtx_${MEDIAMTX_VERSION}_linux_arm64v8.tar.gz \
-    && tar -xzf mediamtx_${MEDIAMTX_VERSION}_linux_arm64v8.tar.gz -C /usr/local/bin mediamtx \
-    && rm mediamtx_${MEDIAMTX_VERSION}_linux_arm64v8.tar.gz
+ARG MEDIAMTX_VERSION=v1.17.1_darwin
+RUN wget https://github.com/bluenviron/mediamtx/releases/download/${MEDIAMTX_VERSION}/mediamtx_${MEDIAMTX_VERSION}_linux_arm64.tar.gz \
+    && tar -xzf mediamtx_${MEDIAMTX_VERSION}_linux_arm64.tar.gz -C /usr/local/bin mediamtx \
+    && rm mediamtx_${MEDIAMTX_VERSION}_linux_arm64.tar.gz
 
 # Prepare MediaMTX config
 RUN printf "paths:\n  all:\n    source: publisher\n    rtspTransport: tcp\n" > /etc/mediamtx.yml
