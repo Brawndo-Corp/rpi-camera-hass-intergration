@@ -27,7 +27,7 @@ devices:
   - /dev/media3:/dev/media3
 options:
   camera_path: "0"
-  resolution: "1920x1080"
+  resolution: "1456x1088"
   framerate: 15
   bitrate: 12000000
   h264_profile: "main"
@@ -36,7 +36,7 @@ privileged:
   - SYS_RAWIO
 schema:
   camera_path: str
-  resolution: list(4056x3040|2028x1520|1920x1080|1280x720)
+  resolution: list(4056x3040|2028x1520|1920x1080|1456x1088|1280x720)
   framerate: int
   bitrate: int
   h264_profile: list(baseline|main|high)
