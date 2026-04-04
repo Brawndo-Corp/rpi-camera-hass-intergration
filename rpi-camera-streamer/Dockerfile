@@ -7,15 +7,18 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
     gnupg \
     && \
-    wget -O /usr/share/keyrings/raspberrypi-archive-keyring.gpg https://archive.raspberrypi.com/debian/raspberrypi.gpg.key && \
-    echo "deb [signed-by=/usr/share/keyrings/raspberrypi-archive-keyring.gpg] http://archive.raspberrypi.com/debian/ trixie main" > /etc/apt/sources.list.d/raspi.list && \
-    apt-get update && apt-get install -y --no-install-recommends \
-    libcamera-apps \
-    libcamera-v4l2 \
-    libcamera0 \
-    libcamera-ipa \
-    v4l-utils \
-    ffmpeg \
+    mkdir -p /usr/share/keyrings \
+    && curl -fsSL https://archive.raspberrypi.com/debian/raspberrypi.gpg.key \
+        | gpg --dearmor -o /usr/share/keyrings/raspberrypi-archive-keyring.gpg \
+    && echo "deb [signed-by=/usr/share/keyrings/raspberrypi-archive-keyring.gpg] http://archive.raspberrypi.com/debian/ trixie main" \
+        > /etc/apt/sources.list.d/raspi.list \
+    && apt-get update && apt-get install -y --no-install-recommends \
+        libcamera-apps \
+        libcamera-v4l2 \
+        libcamera0 \
+        libcamera-ipa \
+        v4l-utils \
+        ffmpeg \
     && rm -rf /var/lib/apt/lists/*
 # Install MediaMTX (RTSP Server)
 ARG MEDIAMTX_VERSION=v1.17.1
