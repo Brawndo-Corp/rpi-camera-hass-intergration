@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && apt-get update && apt-get install -y --no-install-recommends \
         libcamera-apps \
         libcamera-v4l2 \
-        libcamera0 \
+        # libcamera0 \
         libcamera-ipa \
         v4l-utils \
         ffmpeg \
