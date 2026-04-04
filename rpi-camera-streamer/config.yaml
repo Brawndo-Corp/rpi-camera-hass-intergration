@@ -14,8 +14,11 @@ protected: false
 host_network: true
 host_ipc: true
 video: true
+udev: true
 devices:
   - /dev/dma_heap:/dev/dma_heap
+  - /dev/dma_heap/system:/dev/dma_heap/system
+  - /dev/dma_heap/linux,cma:/dev/dma_heap/linux,cma
   - /dev/v4l-subdev0:/dev/v4l-subdev0
   - /dev/v4l-subdev1:/dev/v4l-subdev1
   - /dev/v4l-subdev2:/dev/v4l-subdev2
