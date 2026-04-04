@@ -6,7 +6,7 @@ FPS=$(bashio::config 'framerate')
 BITRATE=$(bashio::config 'bitrate')
 PROFILE=$(bashio::config 'h264_profile')
 
-bashio::log.info "RPi Camera Streamer Starting..."
+bashio::log.info "Universal RPi Camera Streamer Starting..."
 
 #echo "========================================"
 #echo "TESTING LIBCAMERA HARDWARE ACCESS..."
@@ -22,14 +22,16 @@ bashio::log.info "RPi Camera Streamer Starting..."
 # Sleep for a few minutes so the Home Assistant Supervisor doesn't 
 # immediately see the script end and trigger a crash loop
 #sleep 300
-# Start MediaMTX
+
+# Start MediaMTX in the background
 /usr/local/bin/mediamtx /etc/mediamtx.yml &
 sleep 2
 
+# Dynamically parse the resolution string from the Add-on config
 WIDTH=$(echo $RES | cut -d'x' -f1)
 HEIGHT=$(echo $RES | cut -d'x' -f2)
 
-# Start rpicam-vid with IMX500 optimizations
+# Start rpicam-vid with dynamic hardware parameters
 rpicam-vid \
     -t 0 \
     --camera "${CAMERA_PATH}" \
