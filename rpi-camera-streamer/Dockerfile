@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         ffmpeg \
     && rm -rf /var/lib/apt/lists/*
 # Install MediaMTX (RTSP Server)
-ARG MEDIAMTX_VERSION=v1.17.1_darwin
+ARG MEDIAMTX_VERSION=v1.17.1
 RUN wget https://github.com/bluenviron/mediamtx/releases/download/${MEDIAMTX_VERSION}/mediamtx_${MEDIAMTX_VERSION}_linux_arm64.tar.gz \
     && tar -xzf mediamtx_${MEDIAMTX_VERSION}_linux_arm64.tar.gz -C /usr/local/bin mediamtx \
     && rm mediamtx_${MEDIAMTX_VERSION}_linux_arm64.tar.gz
