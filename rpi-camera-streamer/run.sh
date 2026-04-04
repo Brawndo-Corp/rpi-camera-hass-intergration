@@ -6,7 +6,7 @@ FPS=$(bashio::config 'framerate')
 BITRATE=$(bashio::config 'bitrate')
 PROFILE=$(bashio::config 'h264_profile')
 
-bashio::log.info "Brawndo Corp Streamer Starting..."
+bashio::log.info "RPi Camera Streamer Starting..."
 
 #echo "========================================"
 #echo "TESTING LIBCAMERA HARDWARE ACCESS..."
