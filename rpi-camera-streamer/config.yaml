@@ -2,7 +2,7 @@ name: "RPi Camera Streamer (Full Access)"
 version: "1.0.2"
 panel_icon: "mdi:cctv"
 panel_title: RPi Camera Streamer
-slug: "rpi_camera_streamer"
+slug: "rpi-camera-streamer"
 description: "High-performance CSI/USB camera streamer, optimized for RPi 5 and IMX500."
 url: "https://github.com/Brawndo-Corp/rpi-camera-haos-app"
 image: ghcr.io/Brawndo-Corp/rpi-camera-haos-app
