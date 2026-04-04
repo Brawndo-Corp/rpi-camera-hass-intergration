@@ -31,8 +31,8 @@ privileged:
 schema:
   camera_path: str
   resolution: list(4056x3040|2028x1520|1920x1080|1280x720)
-  framerate: int(1..60)
-  bitrate: int(1000000..50000000)
+  framerate: int
+  bitrate: int
   h264_profile: list(baseline|main|high)
 arch:
   - aarch64
